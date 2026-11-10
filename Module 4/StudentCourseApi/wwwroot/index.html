@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Catalog</title>
+    </head>
+    <body>
+        <h1>Course Catalog</h1>
+        <button id="load">Load Courses</button>
+        <ul id="courses"></ul>
+
+        <h2>Add Course</h2>
+        <form id="add-course-form">
+            <label>Code: <input type="text" id="add-code" required></label><br>
+            <label>Title: <input type="text" id="add-title" required></label><br>
+            <label>Credits: <input type="number" id="add-credits" required></label><br>
+            <label>Instructor: <input type="text" id="add-instructor" required></label><br>
+            <button type="submit">Add Course</button>
+        </form>
+
+        <h2>Update Course</h2>
+        <form id="update-course-form">
+            <label>ID: <input type="number" id="update-id" required></label><br>
+            <label>Code: <input type="text" id="update-code" required></label><br>
+            <label>Title: <input type="text" id="update-title" required></label><br>
+            <label>Credits: <input type="number" id="update-credits" required></label><br>
+            <label>Instructor: <input type="text" id="update-instructor" required></label><br>
+            <button type="submit">Update Course</button>
+        </form>
+
+        <h2>Delete Course</h2>
+        <form id="delete-course-form">
+            <label>ID: <input type="number" id="delete-id" required></label><br>
+            <button type="submit">Delete Course</button>
+        </form>
+
+        <script>
+            document.querySelector('#load').addEventListener('click', async () => {
+                try {
+                    const response = await fetch('/api/courses');
+                    if (!response.ok) {
+                        throw new Error('Unable to load courses');
+                    }
+                    const courses = await response.json();
+                    const list = document.querySelector('#courses');
+                    list.replaceChildren();
+                    for (const course of courses) {
+                        const item = document.createElement('li');
+                        item.textContent = `${course.code} - ${course.title} - ${course.credits} - ${course.instructor}`;
+                        list.appendChild(item);
+                    }
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+
+            document.querySelector('#add-course-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const course = {
+                    code: document.querySelector('#add-code').value,
+                    title: document.querySelector('#add-title').value,
+                    credits: parseInt(document.querySelector('#add-credits').value, 10),
+                    instructor: document.querySelector('#add-instructor').value,
+                };
+                try {
+                    const response = await fetch('/api/courses', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(course),
+                    });
+                    if (!response.ok) {
+                        throw new Error('Unable to add course');
+                    }
+                    alert('Course added successfully');
+                    document.querySelector('#add-course-form').reset();
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+
+            document.querySelector('#update-course-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const id = parseInt(document.querySelector('#update-id').value, 10);
+                const course = {
+                    code: document.querySelector('#update-code').value || null,
+                    title: document.querySelector('#update-title').value || null,
+                    credits: document.querySelector('#update-credits').value ? parseInt(document.querySelector('#update-credits').value, 10) : null,
+                    instructor: document.querySelector('#update-instructor').value || null,
+                };
+                try {
+                    const response = await fetch(`/api/courses/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(course),
+                    });
+                    if (!response.ok) {
+                        throw new Error('Unable to update course');
+                    }
+                    alert('Course updated successfully');
+                    document.querySelector('#update-course-form').reset();
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+            
+            document.querySelector('#delete-course-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const id = parseInt(document.querySelector('#delete-id').value, 10);
+                try {
+                    const response = await fetch(`/api/courses/${id}`, {
+                        method: 'DELETE',
+                    });
+                    if (!response.ok) {
+                        throw new Error('Unable to delete course');
+                    }
+                    alert('Course deleted successfully');
+                    document.querySelector('#delete-course-form').reset();
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/bin/Debug/net10.0/HelloCSharp
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/bin/Debug/net10.0/HelloCSharp.deps.json
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/bin/Debug/net10.0/HelloCSharp.runtimeconfig.json
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/bin/Debug/net10.0/HelloCSharp.dll
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/bin/Debug/net10.0/HelloCSharp.pdb
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.AssemblyInfoInputs.cache
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.AssemblyInfo.cs
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.csproj.CoreCompileInputs.cache
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.sourcelink.json
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.dll
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/refint/HelloCSharp.dll
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.pdb
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/HelloCSharp.genruntimeconfig.cache
+/Users/delaneyyeakle/Downloads/Survey of Programming Languages/Module 4/HelloCSharp/obj/Debug/net10.0/ref/HelloCSharp.dll
